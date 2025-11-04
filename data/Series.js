@@ -28,7 +28,7 @@ export const Series = [
   {
     id: 3,
     category: "Series",
-    title: "Fina FF",
+    title: "DexterLaboratory",
     imgs: [
       "/images/Series/DexterLaboratory/01.jpeg",
       "/images/Series/DexterLaboratory/02.jpeg",
