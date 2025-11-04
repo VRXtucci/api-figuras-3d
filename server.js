@@ -16,10 +16,10 @@ const __dirname = path.dirname(__filename);
 app.use("/images", express.static(path.join(__dirname, "images")));
 
 // --- Importar las categorías ---
-import animes from "./data/animes.js";
-import comics from "./data/comics.js";
-import juegos from "./data/juegos.js";
-import series from "./data/series.js";
+import animes from "./data/Animes.js";
+import comics from "./data/Comics.js";
+import juegos from "./data/Juegos.js";
+import series from "./data/Series.js";
 
 // --- Rutas principales ---
 app.get("/", (req, res) => {
