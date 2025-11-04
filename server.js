@@ -16,6 +16,7 @@ const __dirname = path.dirname(__filename);
 app.use("/images", express.static(path.join(__dirname, "images")));
 
 // --- Importar los datos ---
+import { Animes } from "./data/Animess.js";
 import { Comics } from "./data/Comics.js";
 import { Juegos } from "./data/Juegos.js";
 import { Series } from "./data/Series.js";
