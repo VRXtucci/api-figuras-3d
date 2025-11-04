@@ -48,10 +48,10 @@ export const Series = [
     category: "Series",
     title: "Finn the Human",
     imgs: [
-      "/images/Series/Finn/01.jpg",
-      "/images/Series/Finn/02.jpg",
-      "/images/Series/Finn/03.jpg",
-      "/images/Series/Finn/04.jpg"
+      "/images/Series/Finn/01.jpeg",
+      "/images/Series/Finn/02.jpeg",
+      "/images/Series/Finn/03.jpeg",
+      "/images/Series/Finn/04.jpeg"
     ],
     desc: "Figura 3D de Finn el Humano de Adventure Time. En una pose de aventura, listo para explorar la Tierra de Ooo con su espada y su característico sombrero de oso.",
     editorial: "Cartoon Network (Hora de Aventura)",
@@ -90,10 +90,10 @@ export const Series = [
     category: "Series",
     title: "Rick And Morty Portal",
     imgs: [
-      "/images/Series/MasterChief/01.jpg",
-      "/images/Series/MasterChief/02.jpg",
-      "/images/Series/MasterChief/03.jpg",
-      "/images/Series/MasterChief/04.jpg"
+      "/images/Series/RickAndMortyPortal/01.jpg",
+      "/images/Series/RickAndMortyPortal/02.jpg",
+      "/images/Series/RickAndMortyPortal/03.jpg",
+      "/images/Series/RickAndMortyPortal/04.jpg"
     ],
     desc: "Figura 3D espectacular de Rick y Morty emergiendo o atravesando uno de sus portales verdes. Un diorama que evoca la ciencia ficción de la serie.",
     editorial: "Adult Swim (Rick y Morty)",
