@@ -1,4 +1,3 @@
-
 import express from "express";
 import cors from "cors";
 import path from "path";
@@ -16,11 +15,11 @@ const __dirname = path.dirname(__filename);
 // --- Servir imágenes ---
 app.use("/images", express.static(path.join(__dirname, "images")));
 
-// --- Importar las categorías ---
-import animes from "./data/Animes.js";
-import comics from "./data/Comics.js";
-import juegos from "./data/Juegos.js";
-import series from "./data/Series.js";
+// --- Importar las categorías (named exports) ---
+import { Animes } from "./data/Animes.js";
+import { Comics } from "./data/Comics.js";
+import { Juegos } from "./data/Juegos.js";
+import { Series } from "./data/Series.js";
 
 // --- Rutas principales ---
 app.get("/", (req, res) => {
@@ -29,7 +28,7 @@ app.get("/", (req, res) => {
 
 app.get("/api/animes", (req, res) => {
   const host = req.protocol + "://" + req.get("host");
-  const data = animes.map((f) => ({
+  const data = Animes.map((f) => ({
     ...f,
     imgs: f.imgs.map((img) => host + img),
   }));
@@ -38,7 +37,7 @@ app.get("/api/animes", (req, res) => {
 
 app.get("/api/comics", (req, res) => {
   const host = req.protocol + "://" + req.get("host");
-  const data = comics.map((f) => ({
+  const data = Comics.map((f) => ({
     ...f,
     imgs: f.imgs.map((img) => host + img),
   }));
@@ -47,7 +46,7 @@ app.get("/api/comics", (req, res) => {
 
 app.get("/api/juegos", (req, res) => {
   const host = req.protocol + "://" + req.get("host");
-  const data = juegos.map((f) => ({
+  const data = Juegos.map((f) => ({
     ...f,
     imgs: f.imgs.map((img) => host + img),
   }));
@@ -56,7 +55,7 @@ app.get("/api/juegos", (req, res) => {
 
 app.get("/api/series", (req, res) => {
   const host = req.protocol + "://" + req.get("host");
-  const data = series.map((f) => ({
+  const data = Series.map((f) => ({
     ...f,
     imgs: f.imgs.map((img) => host + img),
   }));
