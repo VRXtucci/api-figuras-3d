@@ -1,73 +1,67 @@
 import express from "express";
 import cors from "cors";
 import path from "path";
+import { fileURLToPath } from "url";
 
-// Importar los datos de las categorías
-import { Animes } from "./data/animes.js";
-import { Comics } from "./data/comics.js";
-import { Juegos } from "./data/juegos.js";
-import { Series } from "./data/series.js";
-
+// --- Configuración base ---
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Servir imágenes desde la carpeta 'images'
-app.use("/images", express.static(path.join(process.cwd(), "images")));
+// Necesario para obtener __dirname cuando se usa ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// Ruta para todas las figuras
-app.get("/api/figures", (req, res) => {
-  const host = req.protocol + "://" + req.get("host");
+// --- Servir imágenes ---
+app.use("/images", express.static(path.join(__dirname, "images")));
 
-  // Función para agregar URL completa a las imágenes
-  const addFullImgUrl = (arr) => {
-    return arr.map((f) => ({
-      ...f,
-      imgs: f.imgs.map((img) => host + img),
-    }));
-  };
+// --- Importar las categorías ---
+import animes from "./data/animes.js";
+import comics from "./data/comics.js";
+import juegos from "./data/juegos.js";
+import series from "./data/series.js";
 
-  const allFigures = [
-    ...addFullImgUrl(animes),
-    ...addFullImgUrl(Comics),
-    ...addFullImgUrl(Juegos),
-    ...addFullImgUrl(Series),
-  ];
-
-  res.json(allFigures);
+// --- Rutas principales ---
+app.get("/", (req, res) => {
+  res.send("🚀 API de Figuras 3D funcionando correctamente");
 });
 
-// Ruta por categoría
-app.get("/api/figures/:category", (req, res) => {
-  const { category } = req.params;
+app.get("/api/animes", (req, res) => {
   const host = req.protocol + "://" + req.get("host");
-
-  let categoryData = [];
-
-  switch (category.toLowerCase()) {
-    case "animes":
-      categoryData = Animes;
-      break;
-    case "comics":
-      categoryData = Comics;
-      break;
-    case "juegos":
-      categoryData = Juegos;
-      break;
-    case "series":
-      categoryData = Series;
-      break;
-    default:
-      return res.status(404).json({ message: "Categoría no encontrada" });
-  }
-
-  const result = categoryData.map((f) => ({
+  const data = animes.map((f) => ({
     ...f,
     imgs: f.imgs.map((img) => host + img),
   }));
-
-  res.json(result);
+  res.json(data);
 });
 
-const PORT = process.env.PORT || 10000;
-app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
+app.get("/api/comics", (req, res) => {
+  const host = req.protocol + "://" + req.get("host");
+  const data = comics.map((f) => ({
+    ...f,
+    imgs: f.imgs.map((img) => host + img),
+  }));
+  res.json(data);
+});
+
+app.get("/api/juegos", (req, res) => {
+  const host = req.protocol + "://" + req.get("host");
+  const data = juegos.map((f) => ({
+    ...f,
+    imgs: f.imgs.map((img) => host + img),
+  }));
+  res.json(data);
+});
+
+app.get("/api/series", (req, res) => {
+  const host = req.protocol + "://" + req.get("host");
+  const data = series.map((f) => ({
+    ...f,
+    imgs: f.imgs.map((img) => host + img),
+  }));
+  res.json(data);
+});
+
+// --- Puerto dinámico (Railway/Render asignan uno automáticamente) ---
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => console.log(`🚀 Servidor corriendo en puerto ${PORT}`));
