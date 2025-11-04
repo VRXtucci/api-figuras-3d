@@ -16,10 +16,10 @@ const __dirname = path.dirname(__filename);
 app.use("/images", express.static(path.join(__dirname, "images")));
 
 // --- Importar los datos ---
-import { Animes } from "./data/Animess.js";
-import { Comics } from "./data/Comicss.js";
-import { Juegos } from "./data/Juegoss.js";
-import { Series } from "./data/Seriess.js";
+import { Animes } from "./data/Animes.js";
+import { Comics } from "./data/Comics.js";
+import { Juegos } from "./data/Juegos.js";
+import { Series } from "./data/Series.js";
 
 
 // --- Rutas principales ---
@@ -35,10 +35,10 @@ function addHostToImages(req, items) {
   }));
 }
 
-app.get("/api/Animess", (req, res) => res.json(addHostToImages(req, Animes)));
-app.get("/api/Comicss", (req, res) => res.json(addHostToImages(req, Comics)));
-app.get("/api/Juegoss", (req, res) => res.json(addHostToImages(req, Juegos)));
-app.get("/api/Seriess", (req, res) => res.json(addHostToImages(req, Series)));
+app.get("/api/Animes", (req, res) => res.json(addHostToImages(req, Animes)));
+app.get("/api/Comics", (req, res) => res.json(addHostToImages(req, Comics)));
+app.get("/api/Juegos", (req, res) => res.json(addHostToImages(req, Juegos)));
+app.get("/api/Series", (req, res) => res.json(addHostToImages(req, Series)));
 
 // --- Puerto dinámico ---
 const PORT = process.env.PORT || 8080;
