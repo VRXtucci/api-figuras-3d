@@ -60,7 +60,7 @@ export const Comics = [
     id: 5,
     category: "Comics",
     title: "Darth Vader",
-    imgs: ["/images/Comics/DarthMaul/01.gif", "/images/Comics/DarthMaul/02.gif"],
+    imgs: ["/images/Comics/DarthVader/01.gif", "/images/Comics/DarthVader/02.gif"],
     desc: "Figura del legendario Lord Sith, Darth Vader. Una pieza majestuosa que captura la intimidante presencia del villano de Star Wars con gran detalle.",
     editorial: "Star Wars (Lucasfilm)",
     scale: "100mm",
