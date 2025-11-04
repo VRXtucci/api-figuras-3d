@@ -233,9 +233,9 @@ export const Comics = [
     category: "Comics",
     title: "Spot",
     imgs: [
-      "/images/Comics/Spot/01.webp",
-      "/images/Comics/Spot/02.webp",
-      "/images/Comics/Spot/03.webp",
+      "/images/Comics/Spot/01.jpg",
+      "/images/Comics/Spot/02.jpg",
+      "/images/Comics/Spot/03.jpg",
     ],
     desc: "Figura 3D del villano de Spider-Man, Spot (La Mancha). Su diseño único se centra en los portales interdimensionales que cubren su cuerpo.",
     editorial: "Marvel",
