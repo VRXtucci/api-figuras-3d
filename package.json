@@ -1,0 +1,21 @@
+{
+  "name": "api-figuras-3d",
+  "version": "1.0.0",
+  "description": "API para figuras 3D de Animes, Comics, Juegos y Series",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": ["api", "figuras", "3d", "express", "cors"],
+  "author": "Tucci",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
